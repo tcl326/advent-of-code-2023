@@ -83,7 +83,6 @@ def part1(cards: List[Tuple[Set[int], Set[int]]]):
 
 def part2(cards: List[Tuple[Set[int], Set[int]]]):
     memo = [-1] * len(cards)
-    res = 0
 
     def recurse(i):
         if memo[i] != -1:
