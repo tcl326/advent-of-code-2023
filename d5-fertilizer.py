@@ -103,7 +103,6 @@ def part2(seeds, maps):
             next_seeds.extend(map.map_range(start, length))
         seeds = next_seeds
     next_seeds.sort()
-    print(next_seeds[:500])
     return next_seeds[0][0]
 
 
