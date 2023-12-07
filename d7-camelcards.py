@@ -120,8 +120,6 @@ def compare_joker(v1, v2, joker="J"):
     hand1, _ = v1
     hand2, _ = v2
     h1, h2 = get_hand_with_joker(hand1, joker), get_hand_with_joker(hand2, joker)
-    if joker in hand1 or joker in hand2:
-        print(hand1, hand2, h1, h2)
     v1, v2 = hand_hierarcy[h1], hand_hierarcy[h2]
     if v2 > v1:
         return -1
@@ -143,7 +141,6 @@ def part2(hands_with_bid) -> int:
     sorted_hands_with_bid = sorted(hands_with_bid, key=cmp_to_key(compare_joker))
     for i, (h, b) in enumerate(sorted_hands_with_bid):
         res += b * (len(sorted_hands_with_bid) - i)
-    print(sorted_hands_with_bid[:100])
     return res
 
 if __name__ == "__main__":
