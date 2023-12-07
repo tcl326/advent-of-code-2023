@@ -83,7 +83,7 @@ def parse_range(line: str) -> Tuple[int, int, int]:
 def get_location(seed, maps):
     s = seed
     for (dest, source), map in maps.items():
-        print(seed, dest, s, source, map[s])
+        # print(seed, dest, s, source, map[s])
         s = map[s]
     return s
 
@@ -99,7 +99,7 @@ def part2(seeds, maps):
     for (dest, source), map in maps.items():
         next_seeds = []
         for start, length in seeds:
-            print(dest, source, (start, length), map.map_range(start, length))
+            # print(dest, source, (start, length), map.map_range(start, length))
             next_seeds.extend(map.map_range(start, length))
         seeds = next_seeds
     next_seeds.sort()
