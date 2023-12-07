@@ -50,13 +50,8 @@ def get_hand_with_joker(hand: str, joker="J"):
                 return Hand.FULL_HOUSE
             elif joker_count == 2:
                 return Hand.FOUR_A_KIND
-            return Hand.TWO_PAIR
         else:
-            if joker_count == 1:
-                return Hand.THREE_A_KIND
-            elif joker_count == 2:
-                return Hand.THREE_A_KIND
-            return Hand.ONE_PAIR
+            return Hand.THREE_A_KIND
     if joker_count == 1:
         return Hand.ONE_PAIR
     return Hand.HIGH_CARD
