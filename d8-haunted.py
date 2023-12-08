@@ -69,4 +69,3 @@ if __name__ == "__main__":
 
     print(part1(direction, islands))
     print(part2(direction, islands))
-    print(product([2, 2, 2, 2, 3, 3, 11, 17, 43, 47, 59, 67, 71, 79, 89, 109]))
