@@ -104,7 +104,6 @@ def part1(modules: Dict[str, Tuple[ModuleType, List[str]]]) -> int:
     
     low = 0
     high = 0
-    seen = {}
     for i in tqdm.tqdm(range(1, 1_000 + 1)):
         queue = collections.deque([(0, "button", "broadcaster", module_dict["broadcaster"])])
         low += 1
@@ -122,7 +121,6 @@ def part1(modules: Dict[str, Tuple[ModuleType, List[str]]]) -> int:
                     high += 1
                 if d in module_dict:
                     queue.append((np, k, d, module_dict[d]))
-    print(module_dict)
     return low * high
 
 
@@ -147,12 +145,9 @@ def part2(modules: Dict[str, Tuple[ModuleType, List[str]]]) -> int:
             p, prev, k, m = queue.popleft()
             np, dest = m.pulse(p, prev)
             if isinstance(m, ConjunctionModule) and k in ["fh", "mf", "fz", "ss"] and np:
-                print(i, k, dest)
                 seen[k] = i
-                print(seen)
                 if len(seen) == 4:
                     return math.lcm(*seen.values())
-            # print(f"{prev} -{p}> {k} -{np}> {dest}", m)
             if np == 0 and "rx" in dest:
                 return (i + 1)
             for d in dest:
@@ -162,10 +157,6 @@ def part2(modules: Dict[str, Tuple[ModuleType, List[str]]]) -> int:
                     high += 1
                 if d in module_dict:
                     queue.append((np, k, d, module_dict[d]))
-    print(module_dict)
-    return low * high
-
-
 
 
 if __name__ == "__main__":
